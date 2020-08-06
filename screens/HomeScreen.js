@@ -35,7 +35,7 @@ componentDidMount(){
       <View>
         
         <ImageBackground source={require('../assets/grey.png')} style={{width:'100%', height:'100%'}}>
-          <Image source={require('../assets/logo-Transparent.png')} style={{width:150, height:135, marginLeft:110}}></Image>
+          <Image source={require('../assets/logo-Transparent.png')} style={{width:340, height:100, marginLeft:10}}></Image>
         <Text style={{fontSize:30, fontWeight:"bold", textAlign:"center"}}>Home Screen</Text>
       
     

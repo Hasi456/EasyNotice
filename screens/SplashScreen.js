@@ -37,7 +37,6 @@ const SplashScreen = ({navigation}) => {
             <Text style={[styles.title, {
                 color: colors.text, marginTop:-30, marginBottom:20
             }]}>Welcome to EasyNotice App</Text>
-            <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
                 <LinearGradient
@@ -82,8 +81,11 @@ const styles = StyleSheet.create({
       paddingHorizontal: 30
   },
   logo: {
-      width: height_logo,
-      height: height_logo
+      width: 300,
+      height: 100,
+      borderRadius:5,
+      borderWidth:5,
+      borderColor:'#1C1C1C'
   },
   title: {
       color: '#05375a',
