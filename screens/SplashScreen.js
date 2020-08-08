@@ -35,8 +35,15 @@ const SplashScreen = ({navigation}) => {
             animation="fadeInUpBig"
         >
             <Text style={[styles.title, {
-                color: colors.text, marginTop:-30, marginBottom:20
+                color: colors.text, marginTop:-80, marginBottom:20
             }]}>Welcome to EasyNotice App</Text>
+            
+            <Text style={{ fontSize:25,
+                color: colors.text, marginBottom:5
+            }}>H.C Pathirathna</Text>
+             <Text style={{ fontSize:25,
+                color: colors.text, marginBottom:20
+            }}>17001234</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
                 <LinearGradient
@@ -77,7 +84,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
-      paddingVertical: 80,
+      paddingVertical: 130,
       paddingHorizontal: 30
   },
   logo: {
