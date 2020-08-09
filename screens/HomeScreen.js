@@ -74,7 +74,7 @@ componentDidMount(){
           {this.state.dataList.map((item, key) => ((item.email==firebase.auth().currentUser.email)?    
         <TouchableOpacity
                     style={styles.signIn, {marginBottom:10,width:300, marginLeft:30}}
-                    onPress={() =>this.props.navigation.navigate('SettingsScreen')}
+                    onPress={() =>this.props.navigation.navigate('EmployeeQAScreen')}
                 >
                 <LinearGradient
                     colors={['#2E2E2E', '#151515']}

@@ -59,7 +59,7 @@ componentDidMount(){
     '',
     [
       {text: 'NO', onPress: () =>{}, style: 'cancel'},
-      {text: 'YES', onPress: () => firebase.database().ref('/Questions').child(val).remove()},
+      {text: 'YES', onPress: () => firebase.database().ref('/Notices').child(val).remove()},
     ]
   );
   
@@ -84,7 +84,7 @@ render(){
             <Text style={styles.text,{fontWeight:"bold", fontSize:20, textAlign:'center'}}>{item.title}</Text>
             <Text style={styles.text}>{item.description}</Text>
             
-            {this.state.dataList2.map((item, key) => ((item.email==firebase.auth().currentUser.email)?
+            {this.state.dataList2.map((item1, key) => ((item1.email==firebase.auth().currentUser.email)?
                 <TouchableOpacity
                 onPress={()=>{this.DeleteMessage(item._key)}}
                    style={[styles.signIn, {

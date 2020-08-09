@@ -38,7 +38,7 @@ import RootStackScreen from './screens/RootStackScreen';
 import AsyncStorage from '@react-native-community/async-storage';
 import AddReviewScreen from './screens/AddReviewScreen';
 import firebase from '@react-native-firebase/app'
-import SettingsScreen from './screens/SettingsScreen';
+import EmployeeQAScreen from './screens/EmployeeQAScreen';
 import AdminRegScreen from './screens/AdminRegScreen';
 import NoticeScreen from './screens/NoticeScreen';
 import NewsScreen  from  './screens/NewsScreen';
@@ -198,7 +198,7 @@ const App = () => {
           <Drawer.Screen name="AddReviewScreen" component={AddReviewScreen}/>
           <Drawer.Screen name="QA_Screen" component={QA_Screen}/>
           <Drawer.Screen name="AddDevicesScreen" component={AddDevicesScreen}/>
-          <Drawer.Screen name="SettingsScreen" component={SettingsScreen}/>
+          <Drawer.Screen name="EmployeeQAScreen" component={EmployeeQAScreen}/>
           <Drawer.Screen name="AdminRegScreen" component={AdminRegScreen}/>
           <Drawer.Screen name="NoticeScreen" component={NoticeScreen}/>
           <Drawer.Screen name="NewsScreen" component={NewsScreen}/>

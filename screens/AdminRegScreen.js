@@ -22,7 +22,7 @@ import auth from '@react-native-firebase/auth';
 const AdminRegScreen = ({navigation}) => {
 
     const [data, setData] = React.useState({
-        displayName:'',
+        name:'',
         email: '',
         password: '',
         confirm_password: '',
@@ -35,6 +35,12 @@ const AdminRegScreen = ({navigation}) => {
         isValidConfirm_password:true
     });
 
+    const nameInputChange=(val)=>{
+        setData({
+            ...data,
+            name:val,
+        });
+    }
     
     const textInputChange = (val) => {
         var re=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -42,7 +48,7 @@ const AdminRegScreen = ({navigation}) => {
             setData({
                 ...data,
                 email: val,
-              // check_textInputChange: true
+               name:data.name,
               isValidEmail:true,
               password:'123456'
             });
@@ -71,12 +77,13 @@ const AdminRegScreen = ({navigation}) => {
             })
             firebase.auth().createUserWithEmailAndPassword(data.email,data.password).then((res)=>{
                 firebase.database().ref('/Admins').push({
-                    email:data.email
+                    email:data.email,
+                    name:data.name
                 })
                 console.log('User Registered successfully')
                 Alert.alert('User Registered successfully')
                 setData({
-                    displayName:'',
+                    name:'',
                     email:'',
                     password:'12345',
                     confirm_password:'',
@@ -107,12 +114,46 @@ const AdminRegScreen = ({navigation}) => {
           <StatusBar backgroundColor='#000000' barStyle="light-content"/>
         <View style={styles.header}>
             <Text style={styles.text_header}>Register Now!</Text>
+            <Text style={{color:'white'}}>**Default password for admin accounts is 123456, Logout and Reset account password after 
+                getting registered.</Text>
         </View>
         <Animatable.View 
             animation="fadeInUpBig"
             style={styles.footer}
         >
             <ScrollView>
+
+            
+            <Text style={[styles.text_footer, {marginTop: 35}]}>Name</Text>
+            <View style={styles.action}>
+                <Feather 
+                    name="user"
+                    color="#05375a"
+                    size={20}
+                />
+                <TextInput 
+                    placeholder="Enter name"
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    onChangeText={(val) => nameInputChange(val)}
+                />
+                {data.check_textInputChange ? 
+                <Animatable.View
+                    animation="bounceIn"
+                >
+                    <Feather 
+                        name="check-circle"
+                        color="green"
+                        size={20}
+                    />
+                </Animatable.View>
+                : null}
+            </View>
+            { (data.name!='')? null : 
+            <Animatable.View animation="fadeInLeft" duration={500}>
+            <Text style={styles.errorMsg}>Enter your name</Text>
+            </Animatable.View>
+            }    
          
             <Text style={[styles.text_footer, {marginTop: 35}]}>Email</Text>
             <View style={styles.action}>
@@ -146,14 +187,7 @@ const AdminRegScreen = ({navigation}) => {
             </Animatable.View>
             }
 
-            {/* <View style={styles.textPrivate}>
-                <Text style={styles.color_textPrivate}>
-                    By signing up you agree to our
-                </Text>
-                <Text style={[styles.color_textPrivate, {fontWeight: 'bold'}]}>{" "}Terms of service</Text>
-                <Text style={styles.color_textPrivate}>{" "}and</Text>
-                <Text style={[styles.color_textPrivate, {fontWeight: 'bold'}]}>{" "}Privacy policy</Text>
-            </View> */}
+           
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
@@ -199,7 +233,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
-        paddingBottom: 50
+        paddingTop:30,
+        paddingBottom: 20
     },
     footer: {
         flex: Platform.OS === 'ios' ? 3 : 5,

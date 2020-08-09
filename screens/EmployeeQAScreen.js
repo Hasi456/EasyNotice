@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { color } from 'react-native-reanimated';
 
 var dataList=[];
-class SettingsScreen extends React.Component{
+class EmployeeQAScreen extends React.Component{
 
   constructor(props){
     super(props)
@@ -118,6 +118,7 @@ render(){
               <Text>{item.date}</Text>
               <Text style={{marginLeft:230}}>{item.time}</Text>
               </View>
+              <Text>from:- {item.user}</Text>
             
             <Text>To admin:-</Text>
             <Text style={styles.text,{fontWeight:"bold", fontSize:20, textAlign:'center'}}>{item.title}</Text>
@@ -193,7 +194,7 @@ render(){
 };
 
 
-export default SettingsScreen;
+export default EmployeeQAScreen;
 
 const styles = StyleSheet.create({
   container: {

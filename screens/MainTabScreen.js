@@ -41,7 +41,7 @@ const MainTabScreen = () => (
           tabBarLabel: 'Private Messages',
           tabBarColor: '#1C1C1C',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-notifications" color={color} size={26} />
+            <Icon name="person-circle-outline" color={color} size={26} />
           ),
         }}
       />
@@ -60,10 +60,10 @@ const MainTabScreen = () => (
         name="Bookmarks"
         component={BookmarkStackScreen}
         options={{
-          tabBarLabel: 'Favourites',
+          tabBarLabel: 'Admins',
           tabBarColor: '#1C1C1C',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-bookmark" color={color} size={26} />
+            <Icon name="at-circle" color={color} size={26} />
           ),
         }}
       />
@@ -101,7 +101,7 @@ const QA_StackScreen = ({navigation}) => (
         fontWeight: 'bold'
         }
     }}>
-        <QA_Stack.Screen name="Notifications" component={QA_Screen} options={{
+        <QA_Stack.Screen name="Private Messages" component={QA_Screen} options={{
         headerLeft: () => (
             <Icon.Button name="ios-menu" size={25} backgroundColor="#1C1C1C" onPress={() => navigation.openDrawer()}></Icon.Button>
         )
@@ -119,7 +119,7 @@ const NewsStackScreen = ({navigation}) => (
           fontWeight: 'bold'
           }
       }}>
-          <NewsStack.Screen name="News Feed" component={NewsScreen} options={{
+          <NewsStack.Screen name="Public Notices" component={NewsScreen} options={{
           headerLeft: () => (
               <Icon.Button name="ios-menu" size={25} backgroundColor="#1C1C1C" onPress={() => navigation.openDrawer()}></Icon.Button>
           )
@@ -137,7 +137,7 @@ const NewsStackScreen = ({navigation}) => (
             fontWeight: 'bold'
             }
         }}>
-            <BookmarkStack.Screen name="favourites" component={BookmarkScreen} options={{
+            <BookmarkStack.Screen name="Admin mails" component={BookmarkScreen} options={{
             headerLeft: () => (
                 <Icon.Button name="ios-menu" size={25} backgroundColor="#1C1C1C" onPress={() => navigation.openDrawer()}></Icon.Button>
             )
