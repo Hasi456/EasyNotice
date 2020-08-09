@@ -50,11 +50,11 @@ componentDidMount(){
 }
  DeleteMessage(val){
   Alert.alert(
-    'Are you sure you want to delete?',
+    'Are you sure you want to Remove this admin?',
     '',
     [
       {text: 'NO', onPress: () =>{}, style: 'cancel'},
-      {text: 'YES', onPress: () => firebase.database().ref('/Questions').child(val).remove()},
+      {text: 'YES', onPress: () => firebase.database().ref('/Admins').child(val).remove()},
     ]
   );
   
@@ -85,15 +85,16 @@ render(){
                         borderColor: '#6E6E6E',
                         borderWidth: 2,
                         marginBottom:2,
-                        marginLeft:280,
+                        marginLeft:270,
                         backgroundColor:'#8A0808',
-                        padding:15
+                        padding:15,
+                        width:100
                        
                     }]}
                 >
                     <Text style={[styles.textSign, {
                         color: 'white'
-                    }]}>Delete</Text>
+                    }]}>Remove</Text>
                 </TouchableOpacity>
                 :null))}
             <View style={styles.separator} />
